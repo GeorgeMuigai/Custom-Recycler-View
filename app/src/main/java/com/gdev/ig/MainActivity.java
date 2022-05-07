@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView rv_posts;
     ProgressBar progressBar;
     TextView txt_getting_posts;
+    int length;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 PostModal postModal = response.body();
+                length = postModal.getTotalHits() / 20;
                 ArrayList<Hits> arrayList = postModal.getHits();
 
                 for (int i = 0; i < arrayList.size(); i++)
